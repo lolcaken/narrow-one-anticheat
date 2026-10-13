@@ -58,27 +58,16 @@ mark at altitude, both stay pegged, then `disconnect: reason=5 extra=[1]`.
 
 ## files
 
-`snippets/` holds the checks, numbered in dependency order:
+everything lives in `narrow-one-anticheat.js`: header comment up top, then
+one `// --- section ---` per check, in this order:
 
-| file | what |
-| ---- | ---- |
-| 01-antifly-accumulate.js | per-frame accumulator block |
-| 02-antifly-report.js | scoring + ground raycast + report call |
-| 03-report-codes.js | `Je..Qe` = 1..5 |
-| 04-report-throttle.js | 1/sec throttle + server forward |
-| 05-report-gate.js | value<=0 drop, self-report + spawn-grace guards |
-| 06-report-wire.js | opcode 21 frame format |
-| 07-q-helper.js | `q()` map/clamp math the scores use |
-| 08-invalid-arrow.js | victim-side arrow test, code 3 |
-| 09-arrow-frequency.js | fire-rate + missing-bow checks, code 4 |
-| 10-dead-action.js | dead-player flag/arrow reports, code 5 |
-| 11-health-anomaly.js | negative-health counter, code 2 |
-| 12-fly-flag.js | who gets `rigidBody.fly` (spectate only) |
-| 13-disconnect.js | opcode 13 kick format, reason 5 + extra code |
-| 14-server-pos.js | opcode 4 broadcast + snap flag |
-| 15-force-snap.js | owned-player rubber-band apply |
-| 16-menu-scan.js | dom menu signatures, local dialog only |
-| 17-server-exec.js | opcode 55 remote-code channel |
+antifly accumulate, antifly report, report codes, report throttle,
+report gate, report wire, q helper, invalid arrow, arrow frequency,
+dead action, health anomaly, fly flag, disconnect, server pos,
+force snap, menu scan, server exec.
+
+excerpts are verbatim trimmed decompiler output (method bodies without the
+surrounding class), so the file reads as notes, not runnable code.
 
 source: narrow.one client bundle, decompiled for research. variable names are
 minified originals, comments above each snippet describe the behavior.
