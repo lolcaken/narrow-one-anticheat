@@ -1,5 +1,7 @@
 # narrow-one anticheat notes
 
+full write-up: [ANTICHEAT-NOTES.md](ANTICHEAT-NOTES.md) - detection loop, wire formats, fly math, arrow validation, bypass design.
+
 verbatim excerpts from the decompiled client in `narrow-one-anticheat.js`. no bypass code here.
 
 ## detection loop
